@@ -16,7 +16,7 @@ RUN apt-get install -y dotnet-dev-1.1.7
 RUN apt-get install -y dotnet-sdk-2.1.4
 
 # Install mono
-RUN apt-get install -y mono-devel
+RUN apt-get -qq -y install mono-complete
 
 # Trigger the population of the local package cache
 ENV NUGET_XMLDOC_MODE skip
