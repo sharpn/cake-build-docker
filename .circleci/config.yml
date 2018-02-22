@@ -16,7 +16,7 @@ jobs:
           name: push image
           command: |
             docker tag cake-build $CIRCLE_PROJECT_USERNAME/cake-build:$CIRCLE_BUILD_NUM
-            docker tagcake-build $CIRCLE_PROJECT_USERNAME/cake-build:latest
+            docker tag cake-build $CIRCLE_PROJECT_USERNAME/cake-build:latest
             docker push $CIRCLE_PROJECT_USERNAME/cake-build:$CIRCLE_BUILD_NUM
             docker push $CIRCLE_PROJECT_USERNAME/cake-build:latest
 
