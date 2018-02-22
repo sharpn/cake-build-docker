@@ -11,10 +11,9 @@ jobs:
       - run: 
           name: build
           command: |
-            cd staging
             docker build -t cake-build .
       - deploy:
-          name: push staging image
+          name: push image
           command: |
             docker tag um-filebeat $CIRCLE_PROJECT_USERNAME/cake-build:$CIRCLE_BUILD_NUM
             docker tag um-filebeat $CIRCLE_PROJECT_USERNAME/cake-build:latest
