@@ -1,0 +1,31 @@
+version: 2
+jobs:
+  build_prod:
+    docker:
+      - image: docker:17.05.0-ce-git
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run: |          
+          docker login -u $DOCKER_USER -p $DOCKER_PASS
+      - run: 
+          name: build
+          command: |
+            cd staging
+            docker build -t cake-build .
+      - deploy:
+          name: push staging image
+          command: |
+            docker tag um-filebeat $CIRCLE_PROJECT_USERNAME/cake-build:$CIRCLE_BUILD_NUM
+            docker tag um-filebeat $CIRCLE_PROJECT_USERNAME/cake-build:latest
+            docker push $CIRCLE_PROJECT_USERNAME/cake-build:$CIRCLE_BUILD_NUM
+            docker push $CIRCLE_PROJECT_USERNAME/cake-build:latest
+
+workflows:
+  version: 2
+  build_prod:
+    jobs:
+      - build_prod:
+          filters:
+            branches:
+              only: master
