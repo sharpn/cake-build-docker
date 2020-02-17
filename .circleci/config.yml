@@ -15,9 +15,9 @@ jobs:
       - deploy:
           name: push image
           command: |
-            docker tag cake-build $CIRCLE_PROJECT_USERNAME/cake-build:3.1
-            docker push $CIRCLE_PROJECT_USERNAME/cake-build:3.1
-            
+            docker tag cake-build thenerdybrewingco/cake-build:3.1
+            docker push thenerdybrewingco/cake-build:3.1
+
 workflows:
   version: 2
   build_prod:
