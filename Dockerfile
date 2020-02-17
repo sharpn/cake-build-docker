@@ -11,5 +11,5 @@ RUN add-apt-repository \
         stable"
 RUN apt-get update && apt-get install -y docker-ce
 
-ENV PATH $PATH:$HOME/.dotnet/tools
 RUN dotnet tool install -g Cake.Tool --version 0.35.0
+ENV PATH="$PATH:/root/.dotnet/tools"
