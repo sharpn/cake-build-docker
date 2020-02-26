@@ -2,7 +2,7 @@
 FROM gittools/gitversion:5.1.4-linux-debian-9-netcoreapp3.1
 
 RUN apt-get update
-RUN apt-get install -y software-properties-common
+RUN apt-get install -y software-properties-common curl
 
 # Docker
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - 
