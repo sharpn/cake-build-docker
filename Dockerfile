@@ -1,7 +1,8 @@
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1.100-bionic
 
 RUN apt-get update
-RUN apt-get install -y software-properties-common curl libcurl3
+RUN apt-get install -y software-properties-common curl 
+RUN apt-get install -qq -y libcurl3
 
 # Docker
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - 
