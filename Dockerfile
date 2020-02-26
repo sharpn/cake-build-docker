@@ -1,8 +1,7 @@
 #FROM mcr.microsoft.com/dotnet/core/sdk:3.1
-FROM gittools/gitversion:5.1.4-linux-debian-9-netcoreapp3.1
 
 RUN apt-get update
-RUN apt-get install -y software-properties-common curl
+RUN apt-get install -y software-properties-common libcurl3
 
 # Docker
 RUN curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add - 
